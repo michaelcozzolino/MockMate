@@ -5,14 +5,15 @@
     <vendor>michaelcozzolino</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.jetbrains.php</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.michaelcozzolino.phpstormmockmate.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <intentionAction>
+            <language>PHP</language>
+            <className>com.michaelcozzolino.plugins.intentions.testmockgenerator.TestMockGenerator</className>
+            <descriptionDirectoryName>PHPunit MockMate</descriptionDirectoryName>
+        </intentionAction>
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.michaelcozzolino.phpstormmockmate.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
-    </applicationListeners>
 </idea-plugin>

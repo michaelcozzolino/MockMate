@@ -17,15 +17,21 @@
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
-
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
-
-To keep everything working, do not remove `<!-- ... -->` sections. 
+With this plugin you can automatically generate PHPUnit test mocks for any class that is going to be tested. just create
+your test using the PHPUnit test template and after having clicked on the lamp appearing on test class name, click on
+`Generate PHPUnit mocks`.
 <!-- Plugin description end -->
 
 ## Installation
+- In your PhpStorm settings in `editor > File and Code Templates` click on `PHPUnit 6 Test` and add the following doc-block 
+  on top of the class declaration:<br>
+  <code>
+/**<br>
+\* @covers \\${TESTED_NAMESPACE}\\${TESTED_NAME};<br>
+*/
+ </code>
 
+Now you have 2 ways to add the plugin:
 - Using IDE built-in plugin system:
   
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "PhpStorm-MockMate"</kbd> >
