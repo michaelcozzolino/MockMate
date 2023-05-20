@@ -34,8 +34,8 @@ kotlin {
 // Configure Gradle IntelliJ Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
     pluginName = properties("pluginName")
-    version = properties("platformVersion")
     type = properties("platformType")
+    version = properties("platformVersion")
 
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins = properties("platformPlugins").map { it.split(',').map(String::trim).filter(String::isNotEmpty) }
@@ -60,7 +60,12 @@ kover.xmlReport {
     onCheck = true
 }
 
+
 tasks {
+    runPluginVerifier {
+        ideVersions.set(properties("platformIdeVersions").get().split(',').map(String::trim).filter(String::isNotEmpty))
+    }
+
     wrapper {
         gradleVersion = properties("gradleVersion").get()
     }
